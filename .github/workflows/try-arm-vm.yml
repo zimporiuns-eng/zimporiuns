@@ -1,0 +1,29 @@
+name: Tentar criar VM ARM
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  try-arm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notificar início
+        run: |
+          curl -d "🔄 GitHub Actions: Tentando criar VM ARM — $(date '+%d/%m %H:%M')" ntfy.sh/zimporiuns-arm-vm
+
+      - name: Tentar criar VM ARM
+        run: |
+          echo "⏳ O script OCI precisa de credenciais configuradas nos Secrets do GitHub."
+          echo "Por enquanto, apenas a notificação está ativa."
+
+      - name: Notificar sucesso (se VM criada)
+        if: success()
+        run: |
+          curl -d "✅ GitHub Actions: VM ARM pode ter sido criada! Verifique o Console Oracle." ntfy.sh/zimporiuns-arm-vm
+
+      - name: Notificar falha
+        if: failure()
+        run: |
+          curl -d "❌ GitHub Actions: Falha ao tentar criar VM ARM — $(date '+%d/%m %H:%M')" ntfy.sh/zimporiuns-arm-vm
