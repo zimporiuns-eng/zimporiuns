@@ -1,0 +1,20 @@
+# Segredos e tokens
+*.pem
+*.key
+*.token
+*secret*
+*credential*
+*.env
+**/ZIM_TELEGRAM_TOKEN*
+**/ZIM_TELEGRAM_CHATID*
+
+# Binários e estados do Terraform
+*.zip
+*.tar.gz
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+
+# Backups e logs volumosos
+03_Backups/
+09_Logs_e_Monitoramento/**/*.log

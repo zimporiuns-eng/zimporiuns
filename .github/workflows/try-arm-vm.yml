@@ -1,0 +1,41 @@
+name: Tentar criar VM ARM
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  try-arm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notificar início
+        run: |
+          curl -d "🔄 GitHub Actions: Tentando criar VM ARM — $(date '+%d/%m %H:%M')" ntfy.sh/zimporiuns-arm-vm
+
+      - name: Configurar OCI CLI
+        uses: oracle-actions/setup-oci-cli@v1
+        with:
+          user: ${{ secrets.OCI_USER_OCID }}
+          fingerprint: ${{ secrets.OCI_FINGERPRINT }}
+          tenancy: ${{ secrets.OCI_TENANCY_OCID }}
+          region: ${{ secrets.OCI_REGION }}
+          key_content: ${{ secrets.OCI_KEY_CONTENT }}
+
+      - name: Tentar criar VM ARM
+        run: |
+          oci compute instance launch \
+            --availability-domain "${{ secrets.OCI_AD }}" \
+            --compartment-id "${{ secrets.OCI_COMPARTMENT_ID }}" \
+            --shape "VM.Standard.A1.Flex" \
+            --shape-config '{"ocpus":1,"memoryInGBs":6}' \
+            --subnet-id "${{ secrets.OCI_SUBNET_ID }}" \
+            --image-id "${{ secrets.OCI_IMAGE_ID }}" \
+            --assign-public-ip true \
+            --display-name "Zimporiuns-ARM-VM" \
+            --ssh-authorized-keys-file <(echo "${{ secrets.OCI_SSH_PUBLIC_KEY }}")
+
+      - name: Notificar falha
+        if: failure()
+        run: |
+          curl -d "❌ GitHub Actions: Falha ao tentar criar VM ARM" ntfy.sh/zimporiuns-arm-vm
