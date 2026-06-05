@@ -15,3 +15,10 @@
 - Credenciais OCI documentadas e protegidas
 - Script ARM migrado para VM permanente (137.131.192.255)
 - Fase 2: 3/5 ações concluídas
+
+## 2026-06-05
+- Integração Telegram concluída: notificações automáticas de backup
+- Cloud Function atualizada com notifyTelegram()
+- Variáveis TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID configuradas
+- Teste real: notificação recebida no grupo "Equipe Zimporiuns"
+- Fase 3 (Automação e Escala): 100% concluída
