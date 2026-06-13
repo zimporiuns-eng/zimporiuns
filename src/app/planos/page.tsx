@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
-type Idioma = 'pt-BR' | 'en' | 'es' | 'pt-PT';
+type Idioma = 'pt-BR' | 'en' | 'es' | 'pt-PT' | 'fr' | 'de' | 'ja' | 'zh';
 
 const traducoes: Record<Idioma, any> = {
   'pt-BR': {
@@ -64,6 +65,66 @@ const traducoes: Record<Idioma, any> = {
     beneficiosSilver: ['Tudo do Bronze', 'Destaque na categoria', 'Distintivo verificado', 'ZimCoin-Silver (ZCS)'],
     beneficiosGold: ['Tudo do Silver', 'Prioridade nas pesquisas', 'Estatísticas básicas', 'ZimCoin-Gold (ZCG)'],
     beneficiosCopper: ['Navegação sem anúncios', 'Favoritos ilimitados', 'Distintivo de apoiante', 'ZimCoin-Copper (ZCC)']
+  },
+  'fr': {
+    titulo: 'Plans Zimporiuns',
+    subtitulo: 'Choisissez le plan parfait pour vous',
+    mensal: 'Mensuel',
+    anual: 'Annuel (20% de réduction)',
+    economia: 'Économisez 20% !',
+    assinar: 'S\'abonner',
+    redirecionando: 'Redirection...',
+    ano: 'an',
+    mes: 'mois',
+    beneficiosBronze: ['Profil dans l\'annuaire', 'Lien du canal', 'Classification indicative', 'ZimCoin-Bronze (ZCB)'],
+    beneficiosSilver: ['Tout le Bronze', 'Mise en avant dans la catégorie', 'Badge vérifié', 'ZimCoin-Silver (ZCS)'],
+    beneficiosGold: ['Tout le Silver', 'Priorité de recherche', 'Statistiques de base', 'ZimCoin-Gold (ZCG)'],
+    beneficiosCopper: ['Navigation sans publicité', 'Favoris illimités', 'Badge de supporter', 'ZimCoin-Copper (ZCC)']
+  },
+  'de': {
+    titulo: 'Zimporiuns Pläne',
+    subtitulo: 'Wählen Sie den perfekten Plan für sich',
+    mensal: 'Monatlich',
+    anual: 'Jährlich (20% Rabatt)',
+    economia: '20% sparen!',
+    assinar: 'Abonnieren',
+    redirecionando: 'Weiterleitung...',
+    ano: 'Jahr',
+    mes: 'Monat',
+    beneficiosBronze: ['Verzeichnisprofil', 'Kanal-Link', 'Alterseinstufung', 'ZimCoin-Bronze (ZCB)'],
+    beneficiosSilver: ['Alles von Bronze', 'Kategorie-Hervorhebung', 'Verifiziertes Abzeichen', 'ZimCoin-Silver (ZCS)'],
+    beneficiosGold: ['Alles von Silver', 'Suchpriorität', 'Basis-Statistiken', 'ZimCoin-Gold (ZCG)'],
+    beneficiosCopper: ['Werbefreie Navigation', 'Unbegrenzte Favoriten', 'Unterstützer-Abzeichen', 'ZimCoin-Copper (ZCC)']
+  },
+  'ja': {
+    titulo: 'Zimporiuns プラン',
+    subtitulo: 'あなたにぴったりのプランをお選びください',
+    mensal: '月額',
+    anual: '年額 (20%オフ)',
+    economia: '20%節約！',
+    assinar: '購読する',
+    redirecionando: 'リダイレクト中...',
+    ano: '年',
+    mes: '月',
+    beneficiosBronze: ['ディレクトリプロフィール', 'チャンネルリンク', 'コンテンツレーティング', 'ZimCoin-Bronze (ZCB)'],
+    beneficiosSilver: ['Bronzeの全機能', 'カテゴリでの強調表示', '認証バッジ', 'ZimCoin-Silver (ZCS)'],
+    beneficiosGold: ['Silverの全機能', '検索優先', '基本統計', 'ZimCoin-Gold (ZCG)'],
+    beneficiosCopper: ['広告なしナビゲーション', '無制限のお気に入り', 'サポーターバッジ', 'ZimCoin-Copper (ZCC)']
+  },
+  'zh': {
+    titulo: 'Zimporiuns 计划',
+    subtitulo: '选择最适合您的计划',
+    mensal: '每月',
+    anual: '每年 (20%折扣)',
+    economia: '节省20%！',
+    assinar: '订阅',
+    redirecionando: '重定向中...',
+    ano: '年',
+    mes: '月',
+    beneficiosBronze: ['目录资料', '频道链接', '内容分级', 'ZimCoin-Bronze (ZCB)'],
+    beneficiosSilver: ['Bronze全部功能', '类别突出显示', '认证徽章', 'ZimCoin-Silver (ZCS)'],
+    beneficiosGold: ['Silver全部功能', '搜索优先', '基础统计', 'ZimCoin-Gold (ZCG)'],
+    beneficiosCopper: ['无广告导航', '无限收藏夹', '支持者徽章', 'ZimCoin-Copper (ZCC)']
   }
 };
 
@@ -71,7 +132,11 @@ const idiomas: { codigo: Idioma; bandeira: string; nome: string }[] = [
   { codigo: 'pt-BR', bandeira: '🇧🇷', nome: 'Português (Brasil)' },
   { codigo: 'en', bandeira: '🇺🇸', nome: 'English' },
   { codigo: 'es', bandeira: '🇪🇸', nome: 'Español' },
-  { codigo: 'pt-PT', bandeira: '🇵🇹', nome: 'Português (Portugal)' }
+  { codigo: 'pt-PT', bandeira: '🇵🇹', nome: 'Português (Portugal)' },
+  { codigo: 'fr', bandeira: '🇫🇷', nome: 'Français' },
+  { codigo: 'de', bandeira: '🇩🇪', nome: 'Deutsch' },
+  { codigo: 'ja', bandeira: '🇯🇵', nome: '日本語' },
+  { codigo: 'zh', bandeira: '🇨🇳', nome: '中文'}
 ];
 
 const planos = [
@@ -102,11 +167,11 @@ export default function Planos() {
 
   return (
     <div style={{ padding: '40px', maxWidth: '1200px', margin: '0 auto' }}>
-      <div style={{ textAlign: 'right', marginBottom: '20px' }}>
+      <div style={{ textAlign: 'right', marginBottom: '20px', display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-end', gap: '5px' }}>
         {idiomas.map((lang) => (
           <button key={lang.codigo} onClick={() => setIdioma(lang.codigo)}
-            style={{ padding: '8px 15px', margin: '0 5px', backgroundColor: idioma === lang.codigo ? '#0070f3' : '#f0f0f0', color: idioma === lang.codigo ? 'white' : '#333', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '0.9rem' }}
-            title={lang.nome}>{lang.bandeira} {lang.codigo === 'en' ? 'EN' : lang.codigo === 'es' ? 'ES' : lang.codigo === 'pt-PT' ? 'PT' : 'BR'}</button>
+            style={{ padding: '6px 12px', backgroundColor: idioma === lang.codigo ? '#0070f3' : '#f0f0f0', color: idioma === lang.codigo ? 'white' : '#333', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '0.85rem' }}
+            title={lang.nome}>{lang.bandeira}</button>
         ))}
       </div>
       <h1 style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '10px' }}>{t.titulo}</h1>
