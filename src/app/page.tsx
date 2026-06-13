@@ -131,6 +131,34 @@ const idiomas: { codigo: Idioma; bandeira: string; nome: string }[] = [
   { codigo: 'zh', bandeira: '🇨🇳', nome: '中文'}
 ];
 
+// Ícones SVG profissionais
+const IconFilm = () => (
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#CD7F32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+    <line x1="7" y1="2" x2="7" y2="22" />
+    <line x1="17" y1="2" x2="17" y2="22" />
+    <line x1="2" y1="12" x2="22" y2="12" />
+    <line x1="2" y1="7" x2="7" y2="7" />
+    <line x1="2" y1="17" x2="7" y2="17" />
+    <line x1="17" y1="7" x2="22" y2="7" />
+    <line x1="17" y1="17" x2="22" y2="17" />
+  </svg>
+);
+
+const IconSearch = () => (
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#CD7F32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="8" />
+    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+  </svg>
+);
+
+const IconCoin = () => (
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#CD7F32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <text x="12" y="16" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#CD7F32" fontFamily="Arial">R$</text>
+  </svg>
+);
+
 export default function Home() {
   const [idioma, setIdioma] = useState<Idioma>('pt-BR');
   const t = traducoes[idioma];
@@ -202,24 +230,24 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* CARDS */}
+      {/* CARDS COM ÍCONES SVG */}
       <div style={{ padding: '60px 30px', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
           
           <div style={{ padding: '40px 30px', backgroundColor: 'white', borderRadius: '16px', border: '1px solid #e9ecef', transition: 'transform 0.2s', boxShadow: '0 2px 10px rgba(0,0,0,0.03)' }}>
-            <div style={{ fontSize: '2rem', marginBottom: '20px' }}>🎬</div>
+            <div style={{ marginBottom: '20px' }}><IconFilm /></div>
             <h2 style={{ fontSize: '1.4rem', fontWeight: '700', marginBottom: '12px', color: '#1a1a2e' }}>{t.criadores}</h2>
             <p style={{ color: '#666', lineHeight: '1.7', fontSize: '0.95rem' }}>{t.criadoresDesc}</p>
           </div>
 
           <div style={{ padding: '40px 30px', backgroundColor: 'white', borderRadius: '16px', border: '1px solid #e9ecef', transition: 'transform 0.2s', boxShadow: '0 2px 10px rgba(0,0,0,0.03)' }}>
-            <div style={{ fontSize: '2rem', marginBottom: '20px' }}>🔍</div>
+            <div style={{ marginBottom: '20px' }}><IconSearch /></div>
             <h2 style={{ fontSize: '1.4rem', fontWeight: '700', marginBottom: '12px', color: '#1a1a2e' }}>{t.espectadores}</h2>
             <p style={{ color: '#666', lineHeight: '1.7', fontSize: '0.95rem' }}>{t.espectadoresDesc}</p>
           </div>
 
           <div style={{ padding: '40px 30px', backgroundColor: 'white', borderRadius: '16px', border: '1px solid #e9ecef', transition: 'transform 0.2s', boxShadow: '0 2px 10px rgba(0,0,0,0.03)' }}>
-            <div style={{ fontSize: '2rem', marginBottom: '20px' }}>💰</div>
+            <div style={{ marginBottom: '20px' }}><IconCoin /></div>
             <h2 style={{ fontSize: '1.4rem', fontWeight: '700', marginBottom: '12px', color: '#1a1a2e' }}>{t.planosAcessiveis}</h2>
             <p style={{ color: '#666', lineHeight: '1.7', fontSize: '0.95rem' }}>{t.planosAcessiveisDesc}</p>
           </div>
