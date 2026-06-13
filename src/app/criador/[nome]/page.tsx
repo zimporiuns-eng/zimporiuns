@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
 type Idioma = 'pt-BR' | 'en' | 'es' | 'pt-PT' | 'fr' | 'de' | 'ja' | 'zh';
 
@@ -104,7 +105,7 @@ const traducoes: Record<Idioma, any> = {
   }
 };
 
-const idiomas: { codigo: Idioma; bandeira: string; nome: string }[] = [
+const idiomas = [
   { codigo: 'pt-BR', bandeira: '🇧🇷', nome: 'Português (Brasil)' },
   { codigo: 'en', bandeira: '🇺🇸', nome: 'English' },
   { codigo: 'es', bandeira: '🇪🇸', nome: 'Español' },
@@ -129,8 +130,10 @@ const criadorExemplo = {
   dataCadastro: 'Junho 2026'
 };
 
-export default function PerfilCriador({ params }: { params: { nome: string } }) {
+export default function PerfilCriador() {
+  const params = useParams();
   const [idioma, setIdioma] = useState<Idioma>('pt-BR');
+  const nomeURL = params?.nome as string || 'criador';
   const criador = criadorExemplo;
   const t = traducoes[idioma];
 
@@ -142,7 +145,7 @@ export default function PerfilCriador({ params }: { params: { nome: string } }) 
       {/* SELETOR DE IDIOMAS */}
       <div style={{ textAlign: 'right', marginBottom: '20px', display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-end', gap: '5px' }}>
         {idiomas.map((lang) => (
-          <button key={lang.codigo} onClick={() => setIdioma(lang.codigo)}
+          <button key={lang.codigo} onClick={() => setIdioma(lang.codigo as Idioma)}
             style={{ padding: '6px 12px', backgroundColor: idioma === lang.codigo ? '#0070f3' : '#f0f0f0', color: idioma === lang.codigo ? 'white' : '#333', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '0.85rem' }}
             title={lang.nome}>{lang.bandeira}</button>
         ))}
