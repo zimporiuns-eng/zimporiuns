@@ -7,9 +7,11 @@ export function generateStaticParams() {
   ];
 }
 
-export default function PerfilCriador({ params }: { params: { nome: string } }) {
+export default async function PerfilCriador({ params }: { params: Promise<{ nome: string }> }) {
+  const { nome } = await params;
+  
   const criador = {
-    nome: params.nome || 'Criador',
+    nome: nome || 'Criador',
     plano: 'Bronze',
     canais: [
       { plataforma: 'YouTube', url: 'https://youtube.com/@exemplo', seguidores: '1.2K' },
