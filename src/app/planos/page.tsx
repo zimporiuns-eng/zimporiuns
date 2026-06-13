@@ -16,6 +16,7 @@ const traducoes: Record<Idioma, any> = {
     redirecionando: 'Redirecionando...',
     ano: 'ano',
     mes: 'mês',
+    urlPersonalizada: 'URL personalizada (zimporiuns.com.br/criador/seu-nome)',
     beneficiosBronze: ['Perfil no diretório', 'Link do canal', 'Classificação indicativa', 'ZimCoin-Bronze (ZCB)'],
     beneficiosSilver: ['Tudo do Bronze', 'Destaque na categoria', 'Badge de verificado', 'ZimCoin-Silver (ZCS)'],
     beneficiosGold: ['Tudo do Silver', 'Prioridade nas buscas', 'Estatísticas básicas', 'ZimCoin-Gold (ZCG)'],
@@ -31,6 +32,7 @@ const traducoes: Record<Idioma, any> = {
     redirecionando: 'Redirecting...',
     ano: 'year',
     mes: 'month',
+    urlPersonalizada: 'Custom URL (zimporiuns.com.br/criador/your-name)',
     beneficiosBronze: ['Directory profile', 'Channel link', 'Content rating', 'ZimCoin-Bronze (ZCB)'],
     beneficiosSilver: ['All Bronze features', 'Category highlight', 'Verified badge', 'ZimCoin-Silver (ZCS)'],
     beneficiosGold: ['All Silver features', 'Search priority', 'Basic statistics', 'ZimCoin-Gold (ZCG)'],
@@ -46,6 +48,7 @@ const traducoes: Record<Idioma, any> = {
     redirecionando: 'Redirigiendo...',
     ano: 'año',
     mes: 'mes',
+    urlPersonalizada: 'URL personalizada (zimporiuns.com.br/criador/tu-nombre)',
     beneficiosBronze: ['Perfil en el directorio', 'Enlace del canal', 'Clasificación indicativa', 'ZimCoin-Bronze (ZCB)'],
     beneficiosSilver: ['Todo lo de Bronze', 'Destacado en categoría', 'Insignia verificada', 'ZimCoin-Silver (ZCS)'],
     beneficiosGold: ['Todo lo de Silver', 'Prioridad en búsquedas', 'Estadísticas básicas', 'ZimCoin-Gold (ZCG)'],
@@ -61,6 +64,7 @@ const traducoes: Record<Idioma, any> = {
     redirecionando: 'A redirecionar...',
     ano: 'ano',
     mes: 'mês',
+    urlPersonalizada: 'URL personalizada (zimporiuns.com.br/criador/seu-nome)',
     beneficiosBronze: ['Perfil no diretório', 'Link do canal', 'Classificação indicativa', 'ZimCoin-Bronze (ZCB)'],
     beneficiosSilver: ['Tudo do Bronze', 'Destaque na categoria', 'Distintivo verificado', 'ZimCoin-Silver (ZCS)'],
     beneficiosGold: ['Tudo do Silver', 'Prioridade nas pesquisas', 'Estatísticas básicas', 'ZimCoin-Gold (ZCG)'],
@@ -76,6 +80,7 @@ const traducoes: Record<Idioma, any> = {
     redirecionando: 'Redirection...',
     ano: 'an',
     mes: 'mois',
+    urlPersonalizada: 'URL personnalisée (zimporiuns.com.br/criador/votre-nom)',
     beneficiosBronze: ['Profil dans l\'annuaire', 'Lien du canal', 'Classification indicative', 'ZimCoin-Bronze (ZCB)'],
     beneficiosSilver: ['Tout le Bronze', 'Mise en avant dans la catégorie', 'Badge vérifié', 'ZimCoin-Silver (ZCS)'],
     beneficiosGold: ['Tout le Silver', 'Priorité de recherche', 'Statistiques de base', 'ZimCoin-Gold (ZCG)'],
@@ -91,6 +96,7 @@ const traducoes: Record<Idioma, any> = {
     redirecionando: 'Weiterleitung...',
     ano: 'Jahr',
     mes: 'Monat',
+    urlPersonalizada: 'Benutzerdefinierte URL (zimporiuns.com.br/criador/dein-name)',
     beneficiosBronze: ['Verzeichnisprofil', 'Kanal-Link', 'Alterseinstufung', 'ZimCoin-Bronze (ZCB)'],
     beneficiosSilver: ['Alles von Bronze', 'Kategorie-Hervorhebung', 'Verifiziertes Abzeichen', 'ZimCoin-Silver (ZCS)'],
     beneficiosGold: ['Alles von Silver', 'Suchpriorität', 'Basis-Statistiken', 'ZimCoin-Gold (ZCG)'],
@@ -106,6 +112,7 @@ const traducoes: Record<Idioma, any> = {
     redirecionando: 'リダイレクト中...',
     ano: '年',
     mes: '月',
+    urlPersonalizada: 'カスタムURL (zimporiuns.com.br/criador/your-name)',
     beneficiosBronze: ['ディレクトリプロフィール', 'チャンネルリンク', 'コンテンツレーティング', 'ZimCoin-Bronze (ZCB)'],
     beneficiosSilver: ['Bronzeの全機能', 'カテゴリでの強調表示', '認証バッジ', 'ZimCoin-Silver (ZCS)'],
     beneficiosGold: ['Silverの全機能', '検索優先', '基本統計', 'ZimCoin-Gold (ZCG)'],
@@ -121,6 +128,7 @@ const traducoes: Record<Idioma, any> = {
     redirecionando: '重定向中...',
     ano: '年',
     mes: '月',
+    urlPersonalizada: '自定义URL (zimporiuns.com.br/criador/your-name)',
     beneficiosBronze: ['目录资料', '频道链接', '内容分级', 'ZimCoin-Bronze (ZCB)'],
     beneficiosSilver: ['Bronze全部功能', '类别突出显示', '认证徽章', 'ZimCoin-Silver (ZCS)'],
     beneficiosGold: ['Silver全部功能', '搜索优先', '基础统计', 'ZimCoin-Gold (ZCG)'],
@@ -190,6 +198,7 @@ export default function Planos() {
               {anual && <p style={{ color: 'green', fontSize: '0.9rem', marginBottom: '15px' }}>{t.economia}</p>}
               <ul style={{ listStyle: 'none', padding: 0, marginBottom: '20px', textAlign: 'left' }}>
                 {beneficios.map((b: string, i: number) => <li key={i} style={{ padding: '5px 0', color: '#555' }}>✅ {b}</li>)}
+                {plano.nome !== 'Copper' && <li style={{ padding: '5px 0', color: '#0070f3', fontWeight: 'bold', fontSize: '0.9rem' }}>🔗 {t.urlPersonalizada}</li>}
               </ul>
               <button onClick={() => handleAssinar(anual ? plano.priceIdAnual : plano.priceIdMensal)} disabled={loading === (anual ? plano.priceIdAnual : plano.priceIdMensal)} style={{ width: '100%', padding: '12px', backgroundColor: loading === (anual ? plano.priceIdAnual : plano.priceIdMensal) ? '#ccc' : '#0070f3', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold', fontSize: '1rem' }}>{loading === (anual ? plano.priceIdAnual : plano.priceIdMensal) ? t.redirecionando : t.assinar}</button>
             </div>
