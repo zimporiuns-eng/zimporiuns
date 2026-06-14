@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ZimChat from '@/components/ZimChat';
+import ZimFlutuante from '@/components/ZimFlutuante';
 
 export const metadata: Metadata = {
   title: 'Zimporiuns — Plataforma de Criadores',
@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR">
       <body style={{ margin: 0, fontFamily: 'Arial, sans-serif' }}>
         {children}
-        <ZimChat />
+        <ZimFlutuante />
       </body>
     </html>
   );
