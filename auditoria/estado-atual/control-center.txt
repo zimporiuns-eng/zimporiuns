@@ -1,0 +1,7 @@
+src/control-center/inventory/system-scan.ts
+src/control-center/inventory/system-state.json
+src/control-center/zim/zim-decision-engine.ts
+src/control-center/zim/zim-policy.ts
+src/control-center/zim/zim-context-guard.ts
+src/control-center/versioning/version-engine.ts
+src/control-center/versioning/checkpoint.ts

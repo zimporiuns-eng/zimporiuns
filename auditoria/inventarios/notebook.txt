@@ -1,0 +1,74 @@
+===== DATA =====
+Thu Jun 18 10:38:31 AM EDT 2026
+
+===== SISTEMA =====
+Linux paulo-Aspire-1410 6.8.0-87-generic #88~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Oct 14 14:03:14 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+
+===== DISTRIBUIÇÃO =====
+PRETTY_NAME="Zorin OS 17.3"
+NAME="Zorin OS"
+VERSION_ID="17"
+VERSION="17.3"
+VERSION_CODENAME=jammy
+ID=zorin
+ID_LIKE="ubuntu debian"
+HOME_URL="https://zorin.com/os/"
+SUPPORT_URL="https://help.zorin.com/"
+BUG_REPORT_URL="https://zorin.com/os/feedback/"
+PRIVACY_POLICY_URL="https://zorin.com/legal/privacy/"
+UBUNTU_CODENAME=jammy
+
+===== PROCESSADOR =====
+Architecture:                         x86_64
+CPU op-mode(s):                       32-bit, 64-bit
+Address sizes:                        36 bits physical, 48 bits virtual
+Byte Order:                           Little Endian
+CPU(s):                               1
+On-line CPU(s) list:                  0
+Vendor ID:                            GenuineIntel
+Model name:                           Intel(R) Celeron(R) CPU          723  @ 1.20GHz
+CPU family:                           6
+Model:                                23
+Thread(s) per core:                   1
+Core(s) per socket:                   1
+Socket(s):                            1
+Stepping:                             10
+BogoMIPS:                             2393.96
+Flags:                                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl cpuid aperfmperf pni dtes64 monitor ds_cpl tm2 ssse3 cx16 xtpr pdcm xsave lahf_lm pti dtherm
+L1d cache:                            32 KiB (1 instance)
+L1i cache:                            32 KiB (1 instance)
+L2 cache:                             1 MiB (1 instance)
+NUMA node(s):                         1
+NUMA node0 CPU(s):                    0
+Vulnerability Gather data sampling:   Not affected
+Vulnerability Itlb multihit:          KVM: Mitigation: VMX unsupported
+Vulnerability L1tf:                   Mitigation; PTE Inversion
+Vulnerability Mds:                    Vulnerable: Clear CPU buffers attempted, no microcode; SMT disabled
+Vulnerability Meltdown:               Mitigation; PTI
+Vulnerability Mmio stale data:        Unknown: No mitigations
+Vulnerability Reg file data sampling: Not affected
+Vulnerability Retbleed:               Not affected
+Vulnerability Spec rstack overflow:   Not affected
+Vulnerability Spec store bypass:      Vulnerable
+Vulnerability Spectre v1:             Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:             Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                  Not affected
+Vulnerability Tsx async abort:        Not affected
+Vulnerability Vmscape:                Not affected
+
+===== MEMÓRIA =====
+               total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       1.2Gi       179Mi        80Mi       474Mi       389Mi
+Swap:          4.9Gi       961Mi       4.0Gi
+
+===== DISCO =====
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           190M   21M  170M  11% /run
+/dev/sda5       228G   75G  142G  35% /
+tmpfs           950M     0  950M   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/sda1       511M  4.0K  511M   1% /boot/efi
+tmpfs           190M  104K  190M   1% /run/user/1000
+
+===== USUÁRIO =====
+paulo

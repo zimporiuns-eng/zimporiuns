@@ -1,0 +1,6 @@
+import { loadStripe } from '@stripe/stripe-js';
+
+// Chave pública da Stripe (pode ficar no código-fonte)
+const stripePublishableKey = "pk_live_51TgtnvCAhPY16wFy0NvW4mRQZiRIx8dSgDuP4gVLMDjwZmTfMGLJi9yAbKzw7Gzf6pkzIkU8fmPaNPb09I9wETy000B1MucRcc";
+
+export const stripePromise = loadStripe(stripePublishableKey);

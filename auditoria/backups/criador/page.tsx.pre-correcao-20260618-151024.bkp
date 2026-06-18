@@ -67,6 +67,7 @@ fontWeight: 'bold'
 >
 {criador.nome.charAt(0)} </div>
 
+```
     <h1 style={{ fontSize: '2.5rem' }}>
       {criador.nome}
     </h1>
@@ -277,6 +278,7 @@ fontWeight: 'bold'
     </Link>
   </div>
 </div>
+```
 
 );
 }

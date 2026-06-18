@@ -1,0 +1,29 @@
+import Stripe from 'stripe';
+
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: '2025-02-24.acacia',
+  appInfo: {
+    name: 'Zimporiuns',
+    version: '1.0.0'
+  }
+});
+
+// Price IDs dos planos (serão adicionados depois no .env)
+export const priceIds = {
+  bronze: {
+    mensal: process.env.NEXT_PUBLIC_STRIPE_PRICE_BRONZE_MENSAL || '',
+    anual: process.env.NEXT_PUBLIC_STRIPE_PRICE_BRONZE_ANUAL || '',
+  },
+  silver: {
+    mensal: process.env.NEXT_PUBLIC_STRIPE_PRICE_SILVER_MENSAL || '',
+    anual: process.env.NEXT_PUBLIC_STRIPE_PRICE_SILVER_ANUAL || '',
+  },
+  gold: {
+    mensal: process.env.NEXT_PUBLIC_STRIPE_PRICE_GOLD_MENSAL || '',
+    anual: process.env.NEXT_PUBLIC_STRIPE_PRICE_GOLD_ANUAL || '',
+  },
+  copper: {
+    mensal: process.env.NEXT_PUBLIC_STRIPE_PRICE_COPPER_MENSAL || '',
+    anual: process.env.NEXT_PUBLIC_STRIPE_PRICE_COPPER_ANUAL || '',
+  },
+};

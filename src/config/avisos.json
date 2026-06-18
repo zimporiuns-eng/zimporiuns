@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "texto": "Bem-vindo ao Zimporiuns! Organize seus links em um so lugar.",
+    "tipo": "novidade",
+    "ativo": true
+  },
+  {
+    "id": 2,
+    "texto": "Planos a partir de R$ 4,90/mes. Cancele quando quiser.",
+    "tipo": "info",
+    "ativo": true
+  },
+  {
+    "id": 3,
+    "texto": "Novidade: Zim, nossa assistente virtual, ja esta disponivel!",
+    "tipo": "novidade",
+    "ativo": true
+  },
+  {
+    "id": 4,
+    "texto": "Manutencao programada: dia 15/06 as 03h. Site indisponivel por 30min.",
+    "tipo": "manutencao",
+    "ativo": false
+  },
+  {
+    "id": 5,
+    "texto": "Em breve: Programa de afiliados para criadores.",
+    "tipo": "info",
+    "ativo": false
+  }
+]

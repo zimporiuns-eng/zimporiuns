@@ -1,0 +1,14 @@
+{
+  "system": "Zimporiuns MVP",
+  "version": "1.0",
+  "description": "Estado inicial do sistema antes de governança avançada",
+  "rules": {
+    "safeMode": true,
+    "requireInventoryBeforeChange": true,
+    "zimCanAccessSensitiveData": false
+  },
+  "notes": [
+    "Este snapshot representa o estado base do projeto",
+    "Toda alteração futura deve ser comparada com este estado"
+  ]
+}

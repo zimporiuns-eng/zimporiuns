@@ -1,157 +1,134 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-
-type Idioma = 'pt-BR' | 'en' | 'es' | 'pt-PT' | 'fr' | 'de' | 'ja' | 'zh';
-
-const traducoes: Record<Idioma, any> = {
-  'pt-BR': {
-    titulo: 'Zimporiuns',
-    subtitulo: 'A plataforma brasileira que conecta criadores de conteúdo ao seu público.',
-    criadores: 'Criadores',
-    criadoresDesc: 'Cadastre seus canais de TV, rádio, YouTube, Twitch e muito mais.',
-    espectadores: 'Espectadores',
-    espectadoresDesc: 'Descubra novos criadores em um diretório organizado por categorias.',
-    planosAcessiveis: 'Planos Acessíveis',
-    planosAcessiveisDesc: 'A partir de R$ 4,90/mês.',
-    verPlanos: 'Ver Planos',
-    rodapeIdiomas: 'Disponível em vários idiomas',
-    rodapeContato: 'contato@zimporiuns.com.br',
-    rodapeCnpj: 'CNPJ: 57.763.175/0001-78'
-  },
-  'en': {
-    titulo: 'Zimporiuns', subtitulo: 'The Brazilian platform that connects content creators to their audience.',
-    criadores: 'Creators', criadoresDesc: 'Register your TV, radio, YouTube, Twitch channels and more.',
-    espectadores: 'Viewers', espectadoresDesc: 'Discover new creators in a category-organized directory.',
-    planosAcessiveis: 'Affordable Plans', planosAcessiveisDesc: 'Starting at R$4.90/month.',
-    verPlanos: 'View Plans', rodapeIdiomas: 'Available in multiple languages',
-    rodapeContato: 'contato@zimporiuns.com.br', rodapeCnpj: 'CNPJ: 57.763.175/0001-78'
-  },
-  'es': {
-    titulo: 'Zimporiuns', subtitulo: 'La plataforma brasileña que conecta creadores de contenido con su público.',
-    criadores: 'Creadores', criadoresDesc: 'Registra tus canales de TV, radio, YouTube, Twitch y más.',
-    espectadores: 'Espectadores', espectadoresDesc: 'Descubre nuevos creadores en un directorio organizado por categorías.',
-    planosAcessiveis: 'Planes Accesibles', planosAcessiveisDesc: 'Desde R$4,90/mes.',
-    verPlanos: 'Ver Planes', rodapeIdiomas: 'Disponible en varios idiomas',
-    rodapeContato: 'contato@zimporiuns.com.br', rodapeCnpj: 'CNPJ: 57.763.175/0001-78'
-  },
-  'pt-PT': {
-    titulo: 'Zimporiuns', subtitulo: 'A plataforma brasileira que liga criadores de conteúdo ao seu público.',
-    criadores: 'Criadores', criadoresDesc: 'Registe os seus canais de TV, rádio, YouTube, Twitch e muito mais.',
-    espectadores: 'Espectadores', espectadoresDesc: 'Descubra novos criadores num diretório organizado por categorias.',
-    planosAcessiveis: 'Planos Acessíveis', planosAcessiveisDesc: 'A partir de R$ 4,90/mês.',
-    verPlanos: 'Ver Planos', rodapeIdiomas: 'Disponível em vários idiomas',
-    rodapeContato: 'contato@zimporiuns.com.br', rodapeCnpj: 'CNPJ: 57.763.175/0001-78'
-  },
-  'fr': {
-    titulo: 'Zimporiuns', subtitulo: 'La plateforme brésilienne qui connecte les créateurs de contenu à leur public.',
-    criadores: 'Créateurs', criadoresDesc: 'Enregistrez vos chaînes TV, radio, YouTube, Twitch et plus.',
-    espectadores: 'Spectateurs', espectadoresDesc: 'Découvrez de nouveaux créateurs dans un répertoire organisé par catégories.',
-    planosAcessiveis: 'Plans Abordables', planosAcessiveisDesc: 'À partir de R$4,90/mois.',
-    verPlanos: 'Voir les Plans', rodapeIdiomas: 'Disponible en plusieurs langues',
-    rodapeContato: 'contato@zimporiuns.com.br', rodapeCnpj: 'CNPJ: 57.763.175/0001-78'
-  },
-  'de': {
-    titulo: 'Zimporiuns', subtitulo: 'Die brasilianische Plattform, die Content-Ersteller mit ihrem Publikum verbindet.',
-    criadores: 'Ersteller', criadoresDesc: 'Registrieren Sie Ihre TV-, Radio-, YouTube-, Twitch-Kanäle und mehr.',
-    espectadores: 'Zuschauer', espectadoresDesc: 'Entdecken Sie neue Ersteller in einem nach Kategorien geordneten Verzeichnis.',
-    planosAcessiveis: 'Erschwingliche Pläne', planosAcessiveisDesc: 'Ab R$4,90/Monat.',
-    verPlanos: 'Pläne ansehen', rodapeIdiomas: 'In mehreren Sprachen verfügbar',
-    rodapeContato: 'contato@zimporiuns.com.br', rodapeCnpj: 'CNPJ: 57.763.175/0001-78'
-  },
-  'ja': {
-    titulo: 'Zimporiuns', subtitulo: 'コンテンツクリエイターと視聴者をつなぐブラジルのプラットフォーム。',
-    criadores: 'クリエイター', criadoresDesc: 'TV、ラジオ、YouTube、Twitchなどのチャンネルを登録。',
-    espectadores: '視聴者', espectadoresDesc: 'カテゴリ別に整理されたディレクトリで新しいクリエイターを発見。',
-    planosAcessiveis: 'お手頃なプラン', planosAcessiveisDesc: '月額R$4.90から。',
-    verPlanos: 'プランを見る', rodapeIdiomas: '複数の言語で利用可能',
-    rodapeContato: 'contato@zimporiuns.com.br', rodapeCnpj: 'CNPJ: 57.763.175/0001-78'
-  },
-  'zh': {
-    titulo: 'Zimporiuns', subtitulo: '连接内容创作者与受众的巴西平台。',
-    criadores: '创作者', criadoresDesc: '注册您的电视、广播、YouTube、Twitch等频道。',
-    espectadores: '观众', espectadoresDesc: '在按类别组织的目录中发现新的创作者。',
-    planosAcessiveis: '实惠计划', planosAcessiveisDesc: '每月R$4.90起。',
-    verPlanos: '查看计划', rodapeIdiomas: '提供多种语言',
-    rodapeContato: 'contato@zimporiuns.com.br', rodapeCnpj: 'CNPJ: 57.763.175/0001-78'
-  }
-};
-
-const idiomas = [
-  { codigo: 'pt-BR', bandeira: '🇧🇷' }, { codigo: 'en', bandeira: '🇺🇸' },
-  { codigo: 'es', bandeira: '🇪🇸' }, { codigo: 'pt-PT', bandeira: '🇵🇹' },
-  { codigo: 'fr', bandeira: '🇫🇷' }, { codigo: 'de', bandeira: '🇩🇪' },
-  { codigo: 'ja', bandeira: '🇯🇵' }, { codigo: 'zh', bandeira: '🇨🇳' }
-];
-
-const IconFilm = () => (
-  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#CD7F32" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/><line x1="17" y1="17" x2="22" y2="17"/></svg>
-);
-const IconSearch = () => (
-  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#CD7F32" strokeWidth="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-);
-const IconCoin = () => (
-  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#CD7F32" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><text x="12" y="17" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#CD7F32" fontFamily="Arial">$</text></svg>
-);
+import PlanCard from '@/components/PlanCard';
 
 export default function Home() {
-  const [idioma, setIdioma] = useState<Idioma>('pt-BR');
-  const t = traducoes[idioma];
+  const planos = [
+    { tipo: 'bronze' as const, nome: 'Bronze', precoMensal: 4.90, precoAnual: 47.00, beneficios: ['Perfil público', 'Links organizados', 'Suporte básico'] },
+    { tipo: 'silver' as const, nome: 'Silver', precoMensal: 9.90, precoAnual: 95.00, beneficios: ['Perfil verificado', 'Estatísticas básicas', 'Destaque em categorias'] },
+    { tipo: 'gold' as const, nome: 'Gold', precoMensal: 19.90, precoAnual: 191.00, beneficios: ['Ranking de criadores', 'Analytics avançado', 'Suporte prioritário'], destaque: true },
+    { tipo: 'copper' as const, nome: 'Copper', precoMensal: 4.90, precoAnual: 47.00, beneficios: ['Acesso a criadores', 'Lista de favoritos', 'Notificações'] }
+  ];
+
+  const vantagens = [
+    { icone: '⭐', titulo: 'Visibilidade para criadores', descricao: 'Criadores pagam para ter destaque, organização e curadoria.' },
+    { icone: '🤖', titulo: 'Curadoria inteligente', descricao: 'IA recomenda criadores relevantes para cada espectador' },
+    { icone: '📈', titulo: 'Estatísticas em tempo real', descricao: 'Acompanhe engajamento, visualizações e crescimento' },
+    { icone: '🌍', titulo: 'Suporte multilíngue', descricao: 'Atendimento em 8 idiomas para criadores do mundo todo' }
+  ];
+
+  const passos = [
+    { numero: '1', titulo: 'Criador se inscreve', descricao: 'Escolhe seu plano e cria seu perfil' },
+    { numero: '2', titulo: 'Organiza links', descricao: 'Adiciona conteúdo de YouTube, Twitch, etc' },
+    { numero: '3', titulo: 'Fã assina', descricao: 'Espectadores pagam para acessar conteúdo premium' },
+    { numero: '4', titulo: 'Você recebe', descricao: 'Transferência automática via Stripe' }
+  ];
 
   return (
-    <div style={{ maxWidth: '100%', overflow: 'hidden' }}>
-      
-      {/* SELETOR DE IDIOMAS */}
-      <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '15px 30px', gap: '6px', flexWrap: 'wrap', backgroundColor: '#f8f9fa', borderBottom: '1px solid #e9ecef' }}>
-        {idiomas.map((lang) => (
-          <button key={lang.codigo} onClick={() => setIdioma(lang.codigo as Idioma)}
-            style={{ padding: '6px 12px', backgroundColor: idioma === lang.codigo ? '#1a1a2e' : 'transparent', color: idioma === lang.codigo ? 'white' : '#555', border: idioma === lang.codigo ? 'none' : '1px solid #ddd', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem' }}
-          >{lang.bandeira}</button>
-        ))}
-      </div>
-
-      {/* HERO COM BANNER */}
-      <div style={{
-        background: 'linear-gradient(135deg, #0f0c29, #302b63, #24243e)',
-        padding: '40px 30px 60px',
-        textAlign: 'center',
-        color: 'white'
-      }}>
-        <img src="/images/banner.webp" alt="Zimporiuns Banner" style={{ maxWidth: '320px', marginBottom: '30px', borderRadius: '16px' }} />
-        <h1 style={{ fontSize: '3.5rem', fontWeight: '800', marginBottom: '15px' }}>{t.titulo}</h1>
-        <p style={{ fontSize: '1.2rem', color: '#b0b0c0', maxWidth: '600px', margin: '0 auto 40px' }}>{t.subtitulo}</p>
-        <Link href="/planos" style={{
-          display: 'inline-block', padding: '16px 45px', background: 'linear-gradient(135deg, #CD7F32, #FFD700)', color: '#1a1a2e', textDecoration: 'none', borderRadius: '50px', fontSize: '1.1rem', fontWeight: '700', boxShadow: '0 8px 25px rgba(205, 127, 50, 0.3)'
-        }}>{t.verPlanos}</Link>
-      </div>
-
-      {/* CARDS */}
-      <div style={{ padding: '60px 30px', maxWidth: '1100px', margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
-          <div style={{ padding: '40px 30px', backgroundColor: 'white', borderRadius: '16px', border: '1px solid #e9ecef', boxShadow: '0 2px 10px rgba(0,0,0,0.03)' }}>
-            <div style={{ marginBottom: '20px' }}><IconFilm /></div>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: '700', marginBottom: '12px', color: '#1a1a2e' }}>{t.criadores}</h2>
-            <p style={{ color: '#666', lineHeight: '1.7', fontSize: '0.95rem' }}>{t.criadoresDesc}</p>
-          </div>
-          <div style={{ padding: '40px 30px', backgroundColor: 'white', borderRadius: '16px', border: '1px solid #e9ecef', boxShadow: '0 2px 10px rgba(0,0,0,0.03)' }}>
-            <div style={{ marginBottom: '20px' }}><IconSearch /></div>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: '700', marginBottom: '12px', color: '#1a1a2e' }}>{t.espectadores}</h2>
-            <p style={{ color: '#666', lineHeight: '1.7', fontSize: '0.95rem' }}>{t.espectadoresDesc}</p>
-          </div>
-          <div style={{ padding: '40px 30px', backgroundColor: 'white', borderRadius: '16px', border: '1px solid #e9ecef', boxShadow: '0 2px 10px rgba(0,0,0,0.03)' }}>
-            <div style={{ marginBottom: '20px' }}><IconCoin /></div>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: '700', marginBottom: '12px', color: '#1a1a2e' }}>{t.planosAcessiveis}</h2>
-            <p style={{ color: '#666', lineHeight: '1.7', fontSize: '0.95rem' }}>{t.planosAcessiveisDesc}</p>
+    <div className="min-h-screen bg-gray-50">
+      {/* HERO SECTION */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+            Conecte-se aos maiores criadores da América Latina
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+            Sua plataforma de organização categórica de conteúdo. Chega de links perdidos ou desorganizados!
+          </p>
+          <div className="flex gap-4 justify-center">
+            <Link href="/planos">
+              <button className="bg-[#FFD700] text-gray-900 px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition">
+                Assinar agora
+              </button>
+            </Link>
+            <Link href="/criadores">
+              <button className="border-2 border-[#FFD700] text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-[#FFD700] transition">
+                Explorar criadores
+              </button>
+            </Link>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* RODAPÉ */}
-      <div style={{ padding: '30px', textAlign: 'center', color: '#999', fontSize: '0.85rem', borderTop: '1px solid #e9ecef', backgroundColor: '#f8f9fa' }}>
-        <p>🌎 {t.rodapeIdiomas}</p>
-        <p>📧 {t.rodapeContato} | {t.rodapeCnpj}</p>
-      </div>
+      {/* SEÇÃO DE PLANOS */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+            Planos para criadores
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Escolha o plano ideal para alavancar seu conteúdo
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {planos.map((plano, index) => (
+              <PlanCard key={index} {...plano} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* COMO FUNCIONA */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+            Como funciona?
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Não se preocupe com estoque. Na Zimporiuns, você organiza seu conteúdo em um só lugar.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {passos.map((passo) => (
+              <div key={passo.numero} className="text-center">
+                <div className="w-16 h-16 bg-[#FFD700] rounded-full flex items-center justify-center text-2xl font-bold text-gray-900 mx-auto mb-4">
+                  {passo.numero}
+                </div>
+                <h3 className="font-bold text-lg mb-2">{passo.titulo}</h3>
+                <p className="text-gray-600 text-sm">{passo.descricao}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* VANTAGENS */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+            Vantagens de usar o Zimporiuns
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Por que criadores e espectadores escolhem a Zimporiuns
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {vantagens.map((vantagem, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition text-center">
+                <div className="text-5xl mb-4">{vantagem.icone}</div>
+                <h3 className="font-bold text-xl mb-2">{vantagem.titulo}</h3>
+                <p className="text-gray-600 text-sm">{vantagem.descricao}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA FINAL */}
+      <section className="py-16 bg-[#FFD700]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Comece hoje mesmo a organizar seu conteúdo
+          </h2>
+          <p className="text-lg text-gray-800 mb-8 max-w-2xl mx-auto">
+            Junte-se a centenas de criadores que já confiam no Zimporiuns
+          </p>
+          <Link href="/planos">
+            <button className="bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
+              Criar conta agora
+            </button>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
+

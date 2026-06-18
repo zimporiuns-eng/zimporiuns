@@ -1,0 +1,39 @@
+# Credenciais OCI — Zimporiuns
+> **⚠️ ARQUIVO SENSÍVEL — NÃO COMPARTILHAR NEM COMMITAR NO GITHUB**
+
+## Dados da Conta
+| Item | Valor |
+|---|---|
+| User OCID | ocid1.user.oc1..aaaaaaaa5ycutlzfqw5v3vyxdxdfvbcjovgpr4l7sthcnysizvcm3rsrep3q |
+| Tenancy OCID | ocid1.tenancy.oc1..aaaaaaaaxvntfbxdlwvp35tyi3bs3unjnu4f54ub72xa6bxrh5bvj3ur4flq |
+| Region | sa-saopaulo-1 |
+| Fingerprint | 6a:f7:d7:ef:b1:ee:99:f1:92:b9:98:5c:44:2b:ec:d5 |
+
+## Chave Privada (API Key)
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAw6SZ6Fry+ezLdLWsNzq2BkA0P8R7qFzP+xVBlTZX8YrcHFYq
+LrFPmq8gpbYnS13O3lDMzXADE8eXal0QCQOkSlczL+6JmBGFa7vCfu9SL89n7H7e
+sFWZ9RExiFzf0OoHyO32ZrEuquwf/Qs2PquZeQNxKOXxOnqfjT1AUMa7nGe+piWH
++uKfGCyQihIMCHDhVoxEapiZVGfF75kLXEIG/kXp4PenqnL7D8y9CNR6Z/i1hvUg
++zEnlKSAXHL24L3w8hLN58axcTSPB5sG9r4dbcliTORSLukdD92AAhz1EdS+feCk
+IVw3C1ostQiMRfWZRvhMYqT3OSuhXE3vzTk80QIDAQABAoIBAAD+EIOa4U309M11
+T3fI2s86aHMLXHcGU4EqHDCCCFB5T4EIS3bI32CN2cWyOeeAuBHG79o573x180kI
+ZFJIL0wePmwt+SScY1e6A3RQr/mX0BnlXqlSO3GNQjnqgkslW/lAHCzsrxH4ZStY
+l3bNa/E7qOMLEyrXoBmsd7gax5OO4LGl4B1QmIk7DMNJTlJN+R9p6JSJ/zF2SgHD
+AbPRSJQcHGAtqC4fvPZaFuezKNdbVvCA66YrriQUj5Q7kQjyVFyHw0IDDjNxKeIT
+wbhlYDZ/H2nYw/sE6WgYZ6z6SFUVeqzRmNfMJhXWFVqpNP/s5A+Rctbbp44tMuKR
+f0aKv1ECgYEA7PZQ68DsMj14ezR8lx+DDFMVfcCarPqqf+NL+TCGay/3DZclPs2O
+VPQCzAIflsuqN0X/R3pJGOoGi2tlpqBOYMTPpZazWdZMOQ+FMo3pVvK+p/TH/map
+sF2OyqI8QucmsdDWbsTQc/4T9J9sNIhfY7AJlrhzeNKfdaR6fV+PRskCgYEA01x1
+bHPwTX5FW0O+L49DDffZztQNwuCClPoAjnmr+tWEHrZzEnDD7sUA/ni9BRhCaAsW
+nN6i5hPDwjNu01dLewgW2crFLFSrLNsjuxyPxdjrw7lEdsD6EARE84e4kbJkANGj
+ZiXXRxY7GXDtzghJt2lWvINZfK68U/CDwKJk4ckCgYEAvOuclHkZVuy/U6sC8hGD
+j53l8n5OUz7+FDwJZECVyntRQpqQbUPBCGYKnM/Mk5MIwEykPD54bM6YLSuQvYnt
+MyV2T5SYpTU/S/bdwPJ3aITcEFgN4vvCqgPNRiyWUtirdvUDIQj1EKUvD8bSpAdd
+1cKRwoKIPXne/BIIPlCjkFECgYAHepsRFl0ncNNlclU1e51EzkNfxTMjdSxJtzrz
+z6xdONbu+0fBHEpilYf+eSk/F+eppNLNBDfBamuf4JAIXGtoVBXy6PDnK6vO74Yp
+Jc6UkqNtDo40oYl3rZ7++wt15FkTild80tP2SPwYX12az8JEAi82hnNRLSGu2rDe
+zSBCuQKBgQDpkoG6a2xiG/nvQ4QloO19CjkdhUtqmGSzbE+lNoImJSObxyz0TFIt
+TTjxklmNH5q7KtBPjnseJzEfevQHunM/C74WT8yquB2AGaHI5HfvClQI21DT1Uky
+U2jKRx3iFSK/xx2zWZi2MsGpIDgiilBqys0SJSom4Hu1g0Br8nbmVw==
+-----END RSA PRIVATE KEY-----
